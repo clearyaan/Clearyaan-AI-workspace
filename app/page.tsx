@@ -20,14 +20,11 @@ export default function Home() {
 
   return (
     <div className="flex h-screen bg-[#0a0a0a] text-white overflow-hidden">
-
-      {/* Sidebar */}
       <div className="w-52 bg-[#0f0f0f] border-r border-[#1f1f1f] flex flex-col py-6 px-4">
         <div className="mb-8">
           <h1 className="text-base font-semibold tracking-tight text-white">Clearyaan</h1>
           <p className="text-xs text-[#555555] mt-0.5">Intelligent Workspace</p>
         </div>
-
         <nav className="flex flex-col gap-0.5 flex-1">
           {navItems.map((item) => (
             <button
@@ -46,7 +43,6 @@ export default function Home() {
             </button>
           ))}
         </nav>
-
         <div className="border-t border-[#1f1f1f] pt-4">
           <div className="flex items-center gap-2 px-1">
             <div className="w-6 h-6 rounded-full bg-[#1f1f1f] flex items-center justify-center text-xs text-white">
@@ -60,7 +56,6 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Main Content */}
       <div className="flex-1 flex flex-col overflow-hidden">
         <div className="h-11 border-b border-[#1f1f1f] flex items-center px-6 justify-between">
           <h2 className="text-sm font-medium text-white">{activeNav}</h2>
@@ -71,14 +66,11 @@ export default function Home() {
         </div>
 
         <div className="flex-1 overflow-y-auto p-6">
-
-          {/* Greeting */}
           <div className="mb-8">
             <h2 className="text-xl font-semibold text-white mb-1">Welcome back</h2>
             <p className="text-sm text-[#555555]">Continue working on your Clearyaan project?</p>
           </div>
 
-          {/* Stats */}
           <div className="grid grid-cols-3 gap-3 mb-6">
             {[
               { label: 'Active Tasks', value: '12' },
@@ -92,7 +84,6 @@ export default function Home() {
             ))}
           </div>
 
-          {/* Projects */}
           <div className="mb-6">
             <p className="text-xs text-[#555555] uppercase tracking-widest mb-3">Active Projects</p>
             <div className="flex flex-col gap-2">
@@ -110,7 +101,7 @@ export default function Home() {
                   </div>
                   <div className="w-full bg-[#1a1a1a] rounded-full h-1">
                     <div
-                      className="bg-white h-1 rounded-full transition-all"
+                      className="bg-white h-1 rounded-full"
                       style={{ width: `${project.progress}%` }}
                     ></div>
                   </div>
@@ -120,8 +111,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Tasks */}
-          <div>
+          <div className="mb-6">
             <p className="text-xs text-[#555555] uppercase tracking-widest mb-3">Today</p>
             <div className="flex flex-col gap-1.5">
               {[
@@ -138,61 +128,14 @@ export default function Home() {
             </div>
           </div>
 
-          {/* AI Chat Button */}
-          <div className="mt-8">
-            <button
-              onClick={() => router.push('/chat')}
-              className="w-full bg-white text-black text-sm font-medium py-3 rounded-xl hover:bg-[#eeeeee] transition-all"
-            >
-              Open AI Assistant
-            </button>
-          </div>
-
+          <button
+            onClick={() => router.push('/chat')}
+            className="w-full bg-white text-black text-sm font-medium py-3 rounded-xl hover:bg-[#eeeeee] transition-all"
+          >
+            Open AI Assistant
+          </button>
         </div>
       </div>
     </div>
   )
-}              ].map((project) => (
-                <div key={project.name} className="bg-[#111111] border border-[#222222] rounded-xl p-4">
-                  <div className="flex justify-between items-center mb-2">
-                    <p className="text-sm font-medium">{project.name}</p>
-                    <span className="text-xs text-[#888888] bg-[#222222] px-2 py-0.5 rounded-full">
-                      {project.status}
-                    </span>
-                  </div>
-                  <div className="w-full bg-[#222222] rounded-full h-1.5">
-                    <div
-                      className="bg-white h-1.5 rounded-full"
-                      style={{ width: `${project.progress}%` }}
-                    ></div>
-                  </div>
-                  <p className="text-xs text-[#888888] mt-1">{project.progress}% complete</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Recent Tasks */}
-          <div>
-            <h3 className="text-sm font-medium text-[#888888] mb-3">Today's Tasks</h3>
-            <div className="flex flex-col gap-2">
-              {[
-                'Finalize AI prompt library',
-                'Review landing page design',
-                'Set up OpenRouter API',
-                'Write product description',
-              ].map((task) => (
-                <div key={task} className="bg-[#111111] border border-[#222222] rounded-xl p-3 flex items-center gap-3">
-                  <div className="w-4 h-4 rounded border border-[#444444]"></div>
-                  <p className="text-sm">{task}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-    </div>
-  )
-                  }
+}
